@@ -92,7 +92,7 @@
 {
     if (!error)
     {
-        NSDictionary *advertisingData = @{CBAdvertisementDataLocalNameKey : @"BlueSim", CBAdvertisementDataServiceUUIDsKey : @[service.UUID]};        
+        NSDictionary *advertisingData = @{CBAdvertisementDataLocalNameKey : @"Polar H7", CBAdvertisementDataServiceUUIDsKey : @[service.UUID]};
         [self.manager startAdvertising:advertisingData];
     }
 }
