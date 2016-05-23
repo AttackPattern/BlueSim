@@ -21,5 +21,6 @@ typedef NS_ENUM(uint8_t, HeartRateSensorLocation) {
 @property (nonatomic) uint8_t targetHeartRate;
 @property (readonly, nonatomic) uint8_t heartRate;
 @property (nonatomic) HeartRateSensorLocation location;
+@property (nonatomic) BOOL sendRandomValues;
 
 @end

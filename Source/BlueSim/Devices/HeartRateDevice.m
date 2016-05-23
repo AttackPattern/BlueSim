@@ -141,7 +141,12 @@ const int fluxEitherSide = 2;
         return;
     
     int flux = (arc4random_uniform(fluxEitherSide * 2) - fluxEitherSide);
-    _currentHeartRate = self.targetHeartRate + flux;
+    if (self.sendRandomValues) {
+        _currentHeartRate = self.targetHeartRate + flux;
+    } else {
+        _currentHeartRate = self.targetHeartRate;
+    }
+    
     
     [self sendHeartRateMeasurement];
 }
