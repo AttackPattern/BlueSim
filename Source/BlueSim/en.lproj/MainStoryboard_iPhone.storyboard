@@ -249,12 +249,40 @@
                                             <constraint firstItem="YUg-UX-8UZ" firstAttribute="leading" secondItem="qOe-Nw-FXb" secondAttribute="leading" constant="20" id="yzM-N8-1Zf"/>
                                         </constraints>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Yf5-D4-eFt">
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yf5-D4-eFt" id="GCc-Zb-Ygs">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Random" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8W-Kp-Bzw">
+                                                    <rect key="frame" x="20" y="11" width="68" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNE-yU-yIm">
+                                                    <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="randomSwithChanged:" destination="j9n-2h-hfn" eventType="touchUpInside" id="AGH-AT-HpX"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="S8W-Kp-Bzw" secondAttribute="centerY" id="9eR-W5-fpf"/>
+                                            <constraint firstItem="qNE-yU-yIm" firstAttribute="centerY" secondItem="S8W-Kp-Bzw" secondAttribute="centerY" id="Cq6-cZ-CjE"/>
+                                            <constraint firstItem="S8W-Kp-Bzw" firstAttribute="leading" secondItem="Yf5-D4-eFt" secondAttribute="leading" constant="20" id="RYA-kp-RxV"/>
+                                            <constraint firstAttribute="trailing" secondItem="qNE-yU-yIm" secondAttribute="trailing" constant="20" id="bqo-i8-t14"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="B2V-4d-NZw">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="nM7-kG-LkT">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="200"/>
+                                        <rect key="frame" x="0.0" y="207" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nM7-kG-LkT" id="Tly-Gl-ZZq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
@@ -319,7 +347,7 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="U10-uB-OI8" detailTextLabel="xUo-05-Iyo" style="IBUITableViewCellStyleValue1" id="riZ-ON-3iI">
-                                        <rect key="frame" x="0.0" y="363" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="407" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="riZ-ON-3iI" id="ZP5-Aj-Bes">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -360,6 +388,7 @@
                         <outlet property="maxValueLabel" destination="SWp-KO-zDa" id="3C4-lj-fbn"/>
                         <outlet property="minValueLabel" destination="O6Z-NW-rOP" id="WdU-dh-WTh"/>
                         <outlet property="powerSwitch" destination="Bib-1o-Thk" id="dno-ZW-ZIK"/>
+                        <outlet property="randomSwitch" destination="qNE-yU-yIm" id="pQk-NA-TWo"/>
                         <outlet property="sensorLocationCell" destination="riZ-ON-3iI" id="afU-cX-MO4"/>
                         <outlet property="sensorLocationLabel" destination="U10-uB-OI8" id="Lyh-u1-6zq"/>
                         <outlet property="sensorLocationValueLabel" destination="xUo-05-Iyo" id="Luy-8F-xrZ"/>

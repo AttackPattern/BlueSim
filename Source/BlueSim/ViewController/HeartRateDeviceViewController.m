@@ -21,6 +21,7 @@
     [super viewDidLoad];
     BLEDeviceSimulator *simulator = [BLEDeviceSimulator instance];
     self.heartRateDevice = [simulator getDeviceByName:@"Heart Rate"];
+    self.heartRateDevice.sendRandomValues = self.randomSwitch.on;
     self.powerSwitch.on = self.heartRateDevice.on;
     self.heartRateLabel.text = [NSString stringWithFormat:@"%d", self.heartRateDevice.heartRate];
     self.heartRateSlider.value = self.heartRateDevice.targetHeartRate;
@@ -60,6 +61,11 @@
         self.heartRateDevice.on = self.powerSwitch.on;
         [self updateUI];
     }
+}
+
+- (IBAction)randomSwithChanged:(UISwitch *)sender
+{
+    self.heartRateDevice.sendRandomValues = sender.on;
 }
 
 - (void)updateUI
