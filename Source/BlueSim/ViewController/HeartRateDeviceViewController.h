@@ -8,6 +8,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *heartRateHeaderLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *powerSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *randomSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *heartRateIconLabel;
 @property (weak, nonatomic) IBOutlet UILabel *heartRateLabel;
 @property (weak, nonatomic) IBOutlet UISlider *heartRateSlider;

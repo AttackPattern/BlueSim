@@ -37,7 +37,7 @@
     if (self)
     {
         _currentHeartRate = _targetHeartRate = 90;
-        _location = HRSensorLocationFinger;
+        _location = HRSensorLocationWrist;
     }
     return self;
 }
@@ -101,7 +101,7 @@
     
     if (on)
     {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                       target:self
                                                     selector:@selector(simulateHeartRateFlux)
                                                     userInfo:nil
@@ -141,7 +141,12 @@ const int fluxEitherSide = 2;
         return;
     
     int flux = (arc4random_uniform(fluxEitherSide * 2) - fluxEitherSide);
-    _currentHeartRate = self.targetHeartRate + flux;
+    if (self.sendRandomValues) {
+        _currentHeartRate = self.targetHeartRate + flux;
+    } else {
+        _currentHeartRate = self.targetHeartRate;
+    }
+    
     
     [self sendHeartRateMeasurement];
 }
@@ -149,14 +154,16 @@ const int fluxEitherSide = 2;
 
 - (void)sendHeartRateMeasurement
 {
-    NSLog(@"Sending heart rate measurement");
-    
-    [self.manager updateValue:[self makeHeartRateMeasurementPayload]
-            forCharacteristic:self.heartRateMeasurementCharacteristic
-         onSubscribedCentrals:nil];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BTHeartRateChanged"
-                                                        object:self];
+    if (self.heartRateMeasurementCharacteristic != nil) {
+        NSLog(@"Sending heart rate measurement: %hhu bpm", self.heartRate);
+        
+        [self.manager updateValue:[self makeHeartRateMeasurementPayload]
+                forCharacteristic:self.heartRateMeasurementCharacteristic
+             onSubscribedCentrals:nil];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BTHeartRateChanged"
+                                                            object:self];
+    }
 }
 
 - (NSData *)makeHeartRateMeasurementPayload

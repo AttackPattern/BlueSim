@@ -8,5 +8,6 @@
 
 + (BLEDeviceSimulator *) instance;
 - (id)getDeviceByName:(NSString *) name;
+- (id)getDeviceBySurname:(NSString *) name;
 
 @end

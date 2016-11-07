@@ -45,4 +45,12 @@ static BLEDeviceSimulator *_instance;
     return nil;
 }
 
+- (id)getDeviceBySurname:(NSString *) name {
+    for (SimulatedDevice *device in self.devices) {
+        if ([device.name isEqualToString:name])
+        return device;
+    }
+    return nil;
+}
+
 @end
